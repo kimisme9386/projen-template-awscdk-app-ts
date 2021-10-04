@@ -210,6 +210,9 @@
       "steps": [
         {
           "exec": "yarn install --frozen-lockfile --check-files"
+        },
+        {
+          "exec": "npm i -g aws-cdk@1.125.0"
         }
       ]
     }

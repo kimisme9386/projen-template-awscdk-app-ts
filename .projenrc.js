@@ -6,7 +6,7 @@ const {
 } = require('projen');
 
 const project = new AwsCdkTypeScriptApp({
-  cdkVersion: '1.96.0',
+  cdkVersion: '1.125.0',
   cdkVersionPinning: true,
   cdkDependencies: ['@aws-cdk/aws-s3'],
   devDeps: ['@types/js-yaml@^3.12.5'],
@@ -55,6 +55,7 @@ const gitpodPrebuild = project.addTask('gitpod:prebuild', {
   description: 'Prebuild setup for Gitpod',
 });
 gitpodPrebuild.exec('yarn install --frozen-lockfile --check-files');
+gitpodPrebuild.exec(`npm i -g aws-cdk@${project.cdkVersion}`);
 
 let gitpod = new Gitpod(project, {
   dockerImage: DevEnvironmentDockerImage.fromFile('.gitpod.Dockerfile'),
