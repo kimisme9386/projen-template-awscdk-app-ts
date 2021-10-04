@@ -23,8 +23,7 @@ const project = new AwsCdkTypeScriptApp({
   repository: 'https://github.com/[owner]/[repo]',
   keywords: ['CodePipeline', 'CodeBuild'],
   gitignore: ['lambda/codepipeline-event/dist', 'lambda/codebuild-event/dist'],
-  buildWorkflow: false,
-  // depsUpgrade: DependenciesUpgradeMechanism.NONE,
+  releaseWorkflow: false,
 });
 
 project.eslint.addRules({
